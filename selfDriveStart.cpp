@@ -20,9 +20,7 @@ int main()
 	
     sonar_left.init( trigger_left, echo_left );
 	sonar_right.init( trigger_right, echo_right );
-
-    while(1){
-        cout << "Distance for left is" << sonar_left.distance( 30000 ) << " cm." << endl;
-		cout << "Distance for right is" << sonar_right.distance( 30000 ) << " cm." << endl;
-    }
+	
+    cout << "Distance for left is" << sonar_left.distance( 30000 ) << " cm." << endl;
+	cout << "Distance for right is" << sonar_right.distance( 30000 ) << " cm." << endl;
 }
