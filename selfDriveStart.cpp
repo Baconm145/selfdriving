@@ -10,8 +10,7 @@ int echo_left = 29;
 int trigger_right = 24;
 int echo_right = 28;
 
-int main()
-{
+int main() {
     if (wiringPiSetup() == -1)
         return -1;
 
