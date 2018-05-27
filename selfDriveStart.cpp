@@ -31,8 +31,8 @@ int main() {
 			system( "echo \"24=0\" > /dev/pi-blaster" );
 			system( "echo \"17=0\" > /dev/pi-blaster" );
 			system( "echo \"22=0.4\" > /dev/pi-blaster" );
+			cout << "Distance for left is " << left_dis << " cm." << endl;
+			cout << "Distance for right is " << right_dis << " cm." << endl;
 		}
 	}	
-    cout << "Distance for left is " << sonar_left.distance( 30000 ) << " cm." << endl;
-	cout << "Distance for right is " << sonar_right.distance( 30000 ) << " cm." << endl;
 }
