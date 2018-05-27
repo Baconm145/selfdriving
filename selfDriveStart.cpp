@@ -17,9 +17,22 @@ int main() {
     Sonar sonar_left;
 	Sonar sonar_right;
 	
+	int left_dis;
+	int right_dis;
+	
     sonar_left.init( trigger_left, echo_left );
 	sonar_right.init( trigger_right, echo_right );
 	
-    cout << "Distance for left is" << sonar_left.distance( 30000 ) << " cm." << endl;
-	cout << "Distance for right is" << sonar_right.distance( 30000 ) << " cm." << endl;
+	while ( 1 ) {
+		left_dis = sonar_left.distance( 30000 );
+		right_dis = sonar_right.distance( 30000 );
+		if ( left_dis > 5 && right_dis > 5 ) {
+			system( 'echo "23=0.4" > /dev/pi-blaster' );
+			system( 'echo "24=0" > /dev/pi-blaster' );
+			system( 'echo "17=0" > /dev/pi-blaster' );
+			system( 'echo "22=0.4" > /dev/pi-blaster' );
+		}
+	}	
+    cout << "Distance for left is " << sonar_left.distance( 30000 ) << " cm." << endl;
+	cout << "Distance for right is " << sonar_right.distance( 30000 ) << " cm." << endl;
 }
