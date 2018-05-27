@@ -4,6 +4,51 @@
 
 using namespace std;
 
+void start_right_forward() {
+	system( "echo \"23=0.35\" > /dev/pi-blaster" );
+	system( "echo \"24=0\" > /dev/pi-blaster" );
+}
+
+void start_left_forward() {
+	system( "echo \"22=0.35\" > /dev/pi-blaster" );	
+	system( "echo \"17=0\" > /dev/pi-blaster" );
+}
+
+void start_right_backward() {
+	system( "echo \"23=0\" > /dev/pi-blaster" );
+	system( "echo \"24=0.35\" > /dev/pi-blaster" );
+}
+
+void start_right_backward() {
+	system( "echo \"22=0\" > /dev/pi-blaster" );
+	system( "echo \"17=0.35\" > /dev/pi-blaster" );
+}
+
+void stop_right() {
+	system( "echo \"23=0\" > /dev/pi-blaster" );	
+	system( "echo \"14=0\" > /dev/pi-blaster" );
+}
+
+void stop_left() {
+	system( "echo \"22=0\" > /dev/pi-blaster" );	
+	system( "echo \"17=0\" > /dev/pi-blaster" );
+}
+
+void rotate_left() {
+	start_right_forward();
+	start_left_backward();
+}
+
+void rotate_right() {
+	start_right_backward();
+	start_left_forward();
+}
+
+void rotate_stop() {
+	stop_left();
+	stop_right();
+}
+
 int trigger_left = 25;
 int echo_left = 29;
 
@@ -28,16 +73,21 @@ int main() {
 		right_dis = sonar_right.distance( 30000 );
 		cout << "Distance for left is " << left_dis << " cm." << endl;
 		cout << "Distance for right is " << right_dis << " cm." << endl;
-		if ( left_dis > 5 && right_dis > 5 ) {
-			system( "echo \"23=0.4\" > /dev/pi-blaster" );
-			system( "echo \"24=0\" > /dev/pi-blaster" );
-			system( "echo \"17=0\" > /dev/pi-blaster" );
-			system( "echo \"22=0.4\" > /dev/pi-blaster" );			
-		} else {
-			system( "echo \"23=0\" > /dev/pi-blaster" );
-			system( "echo \"24=0\" > /dev/pi-blaster" );
-			system( "echo \"17=0\" > /dev/pi-blaster" );
-			system( "echo \"22=0\" > /dev/pi-blaster" );
+		
+		if ( left_dis < 10 && right_dis < 10 ) {
+			start_right_forward();
+			start_left_forward();
+			continue;
+		}
+		
+		if ( left_dis < 10 ) {
+			rotate_right();
+			continue;
+		}
+		
+		if ( right_dis < 10 ) {
+			rotate_left();
+			continue;
 		}
 	}	
 }
