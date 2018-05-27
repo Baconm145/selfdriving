@@ -27,10 +27,10 @@ int main() {
 		left_dis = sonar_left.distance( 30000 );
 		right_dis = sonar_right.distance( 30000 );
 		if ( left_dis > 5 && right_dis > 5 ) {
-			system( 'echo "23=0.4" > /dev/pi-blaster' );
-			system( 'echo "24=0" > /dev/pi-blaster' );
-			system( 'echo "17=0" > /dev/pi-blaster' );
-			system( 'echo "22=0.4" > /dev/pi-blaster' );
+			system( "echo \"23=0.4\" > /dev/pi-blaster" );
+			system( "echo \"24=0\" > /dev/pi-blaster" );
+			system( "echo \"17=0\" > /dev/pi-blaster" );
+			system( "echo \"22=0.4\" > /dev/pi-blaster" );
 		}
 	}	
     cout << "Distance for left is " << sonar_left.distance( 30000 ) << " cm." << endl;
