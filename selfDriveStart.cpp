@@ -19,7 +19,7 @@ void start_right_backward() {
 	system( "echo \"24=0.35\" > /dev/pi-blaster" );
 }
 
-void start_right_backward() {
+void start_left_backward() {
 	system( "echo \"22=0\" > /dev/pi-blaster" );
 	system( "echo \"17=0.35\" > /dev/pi-blaster" );
 }
@@ -34,14 +34,14 @@ void stop_left() {
 	system( "echo \"17=0\" > /dev/pi-blaster" );
 }
 
-void rotate_left() {
-	start_right_forward();
-	start_left_backward();
-}
-
 void rotate_right() {
 	start_right_backward();
 	start_left_forward();
+}
+
+void rotate_left() {
+	start_right_forward();
+	start_left_backward();
 }
 
 void rotate_stop() {
