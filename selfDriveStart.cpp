@@ -26,13 +26,13 @@ int main() {
 	while ( 1 ) {
 		left_dis = sonar_left.distance( 30000 );
 		right_dis = sonar_right.distance( 30000 );
+		cout << "Distance for left is " << left_dis << " cm." << endl;
+		cout << "Distance for right is " << right_dis << " cm." << endl;
 		if ( left_dis > 5 && right_dis > 5 ) {
 			system( "echo \"23=0.4\" > /dev/pi-blaster" );
 			system( "echo \"24=0\" > /dev/pi-blaster" );
 			system( "echo \"17=0\" > /dev/pi-blaster" );
-			system( "echo \"22=0.4\" > /dev/pi-blaster" );
-			cout << "Distance for left is " << left_dis << " cm." << endl;
-			cout << "Distance for right is " << right_dis << " cm." << endl;
+			system( "echo \"22=0.4\" > /dev/pi-blaster" );			
 		} else {
 			system( "echo \"23=0\" > /dev/pi-blaster" );
 			system( "echo \"24=0\" > /dev/pi-blaster" );
