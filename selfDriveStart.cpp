@@ -34,10 +34,10 @@ int main() {
 			cout << "Distance for left is " << left_dis << " cm." << endl;
 			cout << "Distance for right is " << right_dis << " cm." << endl;
 		} else {
-			system( 'echo "23=0" > /dev/pi-blaster' );
-			system( 'echo "24=0" > /dev/pi-blaster' );
-			system( 'echo "17=0" > /dev/pi-blaster' );
-			system( 'echo "22=0" > /dev/pi-blaster' );
+			system( "echo \"23=0\" > /dev/pi-blaster" );
+			system( "echo \"24=0\" > /dev/pi-blaster" );
+			system( "echo \"17=0\" > /dev/pi-blaster" );
+			system( "echo \"22=0\" > /dev/pi-blaster" );
 		}
 	}	
 }
