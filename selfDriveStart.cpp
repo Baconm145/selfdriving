@@ -85,6 +85,9 @@ int main() {
 		}
 		right_dis = sum_right / 20;
 		
+		cout << "Distance for left is " << left_dis << " cm." << endl;
+		cout << "Distance for right is " << right_dis << " cm." << endl;
+		
 		if ( left_dis < 10 && right_dis < 10 ) {
 			start_right_forward();
 			start_left_forward();
