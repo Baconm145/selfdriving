@@ -62,17 +62,28 @@ int main() {
     Sonar sonar_left;
 	Sonar sonar_right;
 	
-	int left_dis;
-	int right_dis;
+	int sum_left;
+	int sum_right;
+	
+	double left_dis;
+	double right_dis;
 	
     sonar_left.init( trigger_left, echo_left );
 	sonar_right.init( trigger_right, echo_right );
 	
 	while ( 1 ) {
-		left_dis = sonar_left.distance( 30000 );
-		right_dis = sonar_right.distance( 30000 );
-		cout << "Distance for left is " << left_dis << " cm." << endl;
-		cout << "Distance for right is " << right_dis << " cm." << endl;
+		
+		sum_left = 0;
+		for ( int i = 0; i < 20; i++ ) {
+			sum_left += sonar_left.distance( 30000 );
+		}
+		left_dis = sum_left / 20;
+		
+		sum_right = 0;
+		for ( int i = 0; i < 20; i++ ) {
+			sum_right += sonar_left.distance( 30000 );
+		}
+		right_dis = sum_right / 20;
 		
 		if ( left_dis < 10 && right_dis < 10 ) {
 			start_right_forward();
